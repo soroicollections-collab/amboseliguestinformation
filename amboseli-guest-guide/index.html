@@ -85,6 +85,17 @@ section.page-section:nth-of-type(even){background:var(--parchment-mid)}
 .bullet-list li{display:flex;align-items:flex-start;gap:12px;font-size:15px;font-weight:300;line-height:1.7;color:var(--ink-mid)}
 .bullet-list li::before{content:'';display:block;width:6px;height:6px;border-radius:50%;background:var(--bronze);margin-top:8px;flex-shrink:0}
 
+/* Spa treatment menu */
+.spa-treatments{display:flex;flex-direction:column;gap:16px;margin-top:18px}
+.treatment-card{padding:16px;background:var(--parchment-mid);border-left:2px solid var(--bronze);border-radius:2px}
+section.page-section:nth-of-type(even) .treatment-card{background:var(--parchment)}
+.treatment-name{font-family:'Cinzel',serif;font-size:16px;font-weight:400;color:var(--earth);margin-bottom:8px}
+.treatment-details{display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:14px;color:var(--ink-lt)}
+@media(max-width:640px){.treatment-details{grid-template-columns:1fr}}
+.treatment-duration{font-weight:300}
+.treatment-price{text-align:right;font-family:'Cinzel',serif;color:var(--earth);font-weight:400}
+@media(max-width:640px){.treatment-price{text-align:left}}
+
 /* Info / Wi-Fi block */
 .info-block{margin-top:28px;padding:22px 24px;background:var(--parchment-mid);border-left:2px solid var(--bronze)}
 section.page-section:nth-of-type(even) .info-block{background:var(--parchment)}
@@ -655,29 +666,119 @@ p+p{margin-top:10px!important}
 
     <div class="reveal d3" style="margin-top:28px;">
       <h4>Signature Treatments</h4>
-      <ul class="bullet-list" style="margin-top:14px;">
-        <li><strong>Soroi Signature Spa Experience</strong> — 30-minute body scrub + 60-minute massage | $125</li>
-        <li><strong>Hot Stone Massage</strong> — 90 minutes | $150</li>
-        <li><strong>Bush Revitalizer Massage</strong> — 60 minutes | $80</li>
-        <li><strong>Deep Tissue Massage</strong> — 60 minutes | $75, 90 minutes | $110</li>
-        <li><strong>Therapeutic Massage</strong> — 60 minutes | $70, 90 minutes | $110</li>
-        <li><strong>Swedish Massage</strong> — 60 minutes | $70, 90 minutes | $100</li>
-        <li><strong>Aromatherapy</strong> — 60 minutes | $80, 90 minutes | $120</li>
-        <li><strong>Holistic Massage</strong> — 60 minutes | $75</li>
-        <li><strong>Stress-Relieving Massage</strong> — 30 minutes | $40</li>
-        <li><strong>Head & Shoulder Massage</strong> — 30 minutes | $40</li>
-        <li><strong>Foot & Reflexology</strong> — 45 minutes | $55</li>
-      </ul>
+      <div class="spa-treatments">
+        <div class="treatment-card">
+          <div class="treatment-name">Soroi Signature Spa Experience</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">30-min body scrub + 60-min massage</div>
+            <div class="treatment-price">$125</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Hot Stone Massage</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">90 minutes</div>
+            <div class="treatment-price">$150</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Bush Revitalizer Massage</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">60 minutes</div>
+            <div class="treatment-price">$80</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Deep Tissue Massage</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">60 min / 90 min</div>
+            <div class="treatment-price">$75 / $110</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Therapeutic Massage</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">60 min / 90 min</div>
+            <div class="treatment-price">$70 / $110</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Swedish Massage</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">60 min / 90 min</div>
+            <div class="treatment-price">$70 / $100</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Aromatherapy</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">60 min / 90 min</div>
+            <div class="treatment-price">$80 / $120</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Holistic Massage</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">60 minutes</div>
+            <div class="treatment-price">$75</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Stress-Relieving Massage</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">30 minutes</div>
+            <div class="treatment-price">$40</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Head & Shoulder Massage</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">30 minutes</div>
+            <div class="treatment-price">$40</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Foot & Reflexology</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">45 minutes</div>
+            <div class="treatment-price">$55</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="reveal d3" style="margin-top:28px;">
       <h4>Body Scrubs</h4>
-      <ul class="bullet-list" style="margin-top:14px;">
-        <li><strong>Anti-Oxidant Coffee & Coconut Sugar Scrub</strong> — 30 minutes | $40</li>
-        <li><strong>Invigorating Citrus Salt & Sugar Scrub</strong> — 30 minutes | $40</li>
-        <li><strong>Relaxing Vanilla & Coconut Brown Sugar Scrub</strong> — 30 minutes | $40</li>
-        <li><strong>Refreshing Lemon & Rosemary Salt Scrub</strong> — 30 minutes | $40</li>
-      </ul>
+      <div class="spa-treatments">
+        <div class="treatment-card">
+          <div class="treatment-name">Anti-Oxidant Coffee & Coconut Sugar Scrub</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">30 minutes</div>
+            <div class="treatment-price">$40</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Invigorating Citrus Salt & Sugar Scrub</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">30 minutes</div>
+            <div class="treatment-price">$40</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Relaxing Vanilla & Coconut Brown Sugar Scrub</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">30 minutes</div>
+            <div class="treatment-price">$40</div>
+          </div>
+        </div>
+        <div class="treatment-card">
+          <div class="treatment-name">Refreshing Lemon & Rosemary Salt Scrub</div>
+          <div class="treatment-details">
+            <div class="treatment-duration">30 minutes</div>
+            <div class="treatment-price">$40</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="reveal d3" style="margin-top:28px;">
