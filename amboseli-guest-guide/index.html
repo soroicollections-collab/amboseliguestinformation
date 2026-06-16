@@ -103,6 +103,11 @@ section.page-section:nth-of-type(even) .info-block{background:var(--parchment)}
 .info-row:last-child{border-bottom:none}
 .info-row .k{color:var(--ink-lt);font-size:12px;letter-spacing:.04em}
 .info-row .v{font-family:'Cinzel',serif;color:var(--earth);font-size:15px;text-align:right}
+.password-field{display:flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;color:var(--earth);font-size:15px;font-weight:400;letter-spacing:.05em}
+.password-value{font-family:'Poppins',sans-serif;background:var(--parchment-line);padding:6px 12px;border-radius:2px;user-select:all}
+.copy-btn{background:var(--bronze);color:white;border:none;padding:6px 12px;border-radius:2px;cursor:pointer;font-size:12px;font-weight:400;text-transform:uppercase;letter-spacing:.08em;transition:opacity .2s}
+.copy-btn:hover{opacity:.85}
+.copy-btn.copied{background:var(--earth)}
 
 /* Weather card */
 .weather-card{margin-top:24px;padding:20px 22px;background:var(--parchment-mid);border:1px solid var(--parchment-line);display:flex;align-items:center;gap:20px}
@@ -404,7 +409,7 @@ p+p{margin-top:10px!important}
     <div class="info-block reveal d3">
       <span class="label" style="margin-bottom:12px;">Wi-Fi</span>
       <div class="info-row"><span class="k">Network</span><span class="v">Guest</span></div>
-      <div class="info-row"><span class="k">Password</span><span class="v">Soroi@2026</span></div>
+      <div class="info-row" style="flex-direction:column;align-items:flex-start;"><span class="k">Password</span><div class="password-field" style="margin-top:6px;"><span class="password-value" id="wifi-password">Soroi@2026</span><button class="copy-btn" id="copy-btn" onclick="copyPassword()">Copy</button></div></div>
       <p style="margin-top:14px;font-size:13px;">Wi-Fi is available throughout the camp. Signal may vary in some tent locations.</p>
     </div>
 
@@ -1254,6 +1259,23 @@ overlay.querySelectorAll('a').forEach(function(a){a.addEventListener('click',tog
     elUsd.classList.add('tbc');elEur.classList.add('tbc');
   });
 })();
+
+// Copy WiFi password
+function copyPassword(){
+  var passwordEl=document.getElementById('wifi-password');
+  var btnEl=document.getElementById('copy-btn');
+  var text=passwordEl.textContent;
+  navigator.clipboard.writeText(text).then(function(){
+    btnEl.textContent='Copied!';
+    btnEl.classList.add('copied');
+    setTimeout(function(){
+      btnEl.textContent='Copy';
+      btnEl.classList.remove('copied');
+    },2000);
+  }).catch(function(){
+    alert('Could not copy password. Please try again.');
+  });
+}
 
 // Scroll reveal
 if('IntersectionObserver' in window){
