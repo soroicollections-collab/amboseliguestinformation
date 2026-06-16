@@ -1,0 +1,12 @@
+node_modules
+.git
+.claude
+outputs
+briefs
+scripts
+orchestrator
+data
+*.log
+.DS_Store
+.env
+.env.local
